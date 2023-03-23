@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RMS booking</title>
+</head>
+<body>
+{% extends 'base.html' %}
+
+{% block title %}Booking{% endblock %}
+
+{% block content %}
+  <h1>Booking</h1>
+  <form method="GET">
+    <label>Type:</label>
+    <select name="type">
+      <option value="Car">Car</option>
+      <option value="SUV">SUV</option>
+      <option value="Van">Van</option>
+    </select>
+    <label>Location:</label>
+    <input type="text" name="location">
+    <label>Date:</label>
+    <input type="date" name="date">
+    <button type="submit">Search</button>
+  </form>
+{% endblock %}
+</body>
+</html>

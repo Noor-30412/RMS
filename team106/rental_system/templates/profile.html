@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+{%  load static %}
+<html>
+<head>
+  <title>User Profile</title>
+  <link rel="stylesheet" href="{% static 'css/style1.css' %}">
+</head>
+<body>
+  <div class="container">
+    <h1>User Profile</h1>
+    <h2>{{ user.username }}</h2>
+    <div class="profile-info">
+      <h3>Profile Information</h3>
+      <ul>
+        <li><strong>Email:</strong> {{ user.email }}</li>
+        <li><strong>First Name:</strong> {{ user.first_name }}</li>
+        <li><strong>Last Name:</strong> {{ user.last_name }}</li>
+      </ul>
+    </div>
+    <div class="rental-history">
+      <h3>Rental History</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Vehicle</th>
+            <th>Rental Start Date</th>
+            <th>Rental End Date</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for rental in rentals %}
+          <tr>
+            <td>{{ rental.vehicle }}</td>
+            <td>{{ rental.start_date }}</td>
+            <td>{{ rental.end_date }}</td>
+            <td>{{ rental.price }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <div class="current-bookings">
+      <h3>Current Bookings</h3>
+      {% if bookings %}
+      <table>
+        <thead>
+          <tr>
+            <th>Vehicle</th>
+            <th>Rental Start Date</th>
+            <th>Rental End Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for booking in bookings %}
+          <tr>
+            <td>{{ booking.vehicle }}</td>
+            <td>{{ booking.start_date }}</td>
+            <td>{{ booking.end_date }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% else %}
+      <p>You have no current bookings.</p>
+      {% endif %}
+    </div>
+  </div>
+</body>
+</html>
