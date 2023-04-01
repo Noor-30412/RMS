@@ -5,11 +5,13 @@
   <title>Login Page</title>
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
+
 <body>
 
   <div class="container">
 
     <h1>Login</h1>
+
     <form method="post">
       {% csrf_token %}
       <div class="form-group">
@@ -23,6 +25,8 @@
       <button type="submit" class="btn btn-primary">Login</button>
     </form>
     <p>Don't have an account? <a href="{% url 'signup' %}">Signup here</a></p>
+    <p>Forgot your password? <a href="{% url 'forgot_password' %}">Click here</a></p>
+
   </div>
 </body>
 </html>

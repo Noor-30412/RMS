@@ -1,18 +1,79 @@
-<!DOCTYPE html>
+{% extends 'base.html' %}
+{% block body %}
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>RMS home</title>
+    <style>
+        body {
+            background: linear-gradient(to bottom, #f2f2f2, #ffffff);
+        }
+        h1 {
+            box-shadow: 3px 3px 3px #8f8888;
+        }
+
+
+
+
+        @keyframes slide {
+            0% {
+                transform: translateX(0);
+              }
+              100% {
+                transform: translateX(-100%);
+              }
+            }
+
+        .image-container {
+              width: 100%;
+              overflow: hidden;
+              white-space: nowrap;
+        }
+
+        .image-container img {
+              display: inline-block;
+              max-width: 100%;
+              height: auto;
+              margin-right: 20px;
+              animation: slide 1s linear infinite;
+        }
+a {
+  transition: all 0.3s ease;
+  background-color: #ff0000;
+  color: #ffffff;
+  padding: 10px;
+  border-radius: 5px;
+  display: block;
+  margin: 0 auto;
+  width: 150px;
+  text-align: center;
+}
+
+a:hover {
+  background-color: #ffffff;
+  color: #ff0000;
+} </style>
 </head>
 <body>
-{% extends 'base.html' %}
 
-{% block title %}Home{% endblock %}
 
-{% block content %}
   <h1>Welcome to the Rental System!</h1>
   <p>Here you can rent a vehicle of your choice!</p>
-  <a href="{% url 'booking' %}">Book Now</a>
+
+  <br>
+  <div class="image-container">
+  <img alt="Image 1" src="{% static 'img/car1.jpg' %}" width="700" height="394">
+  <img alt="Image 2" src="{% static 'img/bike1.jpg' %}" width="700" height="394">
+  <img alt="Image 3" src="{% static 'img/car2.jpg' %}" width="700" height="394">
+</div>
+
+
+
+
+
+
+<a href="{% url 'booking' %}">Book Now</a>
 {% endblock %}
 
 </body>
